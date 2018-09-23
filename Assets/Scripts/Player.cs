@@ -5,6 +5,8 @@ public class Player : MonoBehaviour {
     public static Player Instance { get; private set; }
 
     public Transform player;
+    public float startingHealth;
+    private float health;
 
     private void Awake()
     {
@@ -12,10 +14,20 @@ public class Player : MonoBehaviour {
             Instance = this;
         else
             Destroy(gameObject); // Only one instance of this player
+
+        health = startingHealth;
     }
 
-    public Transform GetPlayerPosition()
+    public Transform GetPlayerTransform()
     {
         return this.transform;
+    }
+
+    public void Damage(float amount)
+    {
+        health -= amount;
+
+        if (health <= 0)
+            Debug.Log("You ded boi!");
     }
 }
