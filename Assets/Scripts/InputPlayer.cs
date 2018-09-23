@@ -12,6 +12,8 @@ public class InputPlayer : MonoBehaviour {
     public Sprite heroIdleFront;
     public Sprite heroIdleBack;
 
+    //private bool joyStickActive = false; 
+
     // Use this for initialization
     void Start () {
         joystick = FindObjectOfType<Joystick>();
@@ -20,6 +22,35 @@ public class InputPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        #region Player shooting input
+        // If value is more than 0 then the joystick is in use
+        //if (joystick.Direction.x > 0 || joystick.Direction.y > 0)
+        //    joyStickActive = true;
+
+        //if ((joyStickActive && Input.touchCount == 2) || (!joyStickActive && Input.touchCount > 0))
+        //{
+        //    Touch touch = Input.GetTouch(0);
+
+        //    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+
+        //    // Switch because I can...maybe do different stuff in the future
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //            Player.Instance.FireShot(touchPos);
+        //            break;
+        //        case TouchPhase.Moved:
+        //            //Player.Instance.FireShot(Physics2D.OverlapPoint(touchPos).transform);
+        //            break;
+        //        case TouchPhase.Stationary:
+        //            //Player.Instance.FireShot(Physics2D.OverlapPoint(touchPos).transform);
+        //            break;
+        //        case TouchPhase.Ended:
+        //            break;
+        //    }
+        //}
+        #endregion
 
         var rigidbody = GetComponent<Rigidbody2D>();
 

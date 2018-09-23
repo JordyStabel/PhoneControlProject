@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour
+{
 
     public float bulletSpeed;
-    public float damage;
+    public int damage;
 
     private Transform playerTransform;
     Vector2 target;
@@ -30,7 +31,7 @@ public class Bullet : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             DestroyBullet();
-            Player.Instance.Damage(damage);
+            Player.Instance.PlayerHit(damage);
         }
     }
 

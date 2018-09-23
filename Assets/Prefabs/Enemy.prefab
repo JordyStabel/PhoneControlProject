@@ -105,7 +105,7 @@ MonoBehaviour:
   retreatDistance: 20
   soundObject: {fileID: 1526876858912358, guid: 5d6b2d6692770ac468f5ff60f5812d49,
     type: 2}
-  startTimeBetweenShots: 2.5
+  startTimeBetweenShots: 5
   bullet: {fileID: 1065604437963948, guid: 8a9cdfe43a3640641aeb84646202b8d8, type: 2}
 --- !u!212 &212236426070400178
 SpriteRenderer:

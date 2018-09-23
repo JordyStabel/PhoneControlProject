@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
     public static Player Instance { get; private set; }
 
+    [Header("General")]
     public LayerMask fogLayer;
     public GameObject[] rayCastPos;
+    public Image[] hearts;
+    public Sprite fullheart;
+    public Sprite emptyHeart;
+    public GameObject bullet;
+    public GameObject soundObject;
 
     public Transform player;
-    public float startingHealth;
-    private float health;
+    public int startingHealth;
+    public int numberOfHearts;
+    private int health;
     private int direction = 0;
 
     private void Awake()
@@ -40,9 +48,10 @@ public class Player : MonoBehaviour {
         return this.transform;
     }
 
-    public void Damage(float amount)
+    public void PlayerHit(int amount)
     {
         health -= amount;
+        UpdateHealth();
 
         if (health <= 0)
             Debug.Log("You ded boi!");
@@ -51,5 +60,33 @@ public class Player : MonoBehaviour {
     public void ChangeHeadLightDirection(int direction)
     {
         this.direction = direction;
+    }
+
+    private void UpdateHealth()
+    {
+        if (health > numberOfHearts)
+            health = numberOfHearts;
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < health)
+                hearts[i].sprite = fullheart;
+            else
+                hearts[i].sprite = emptyHeart;
+
+            if (i < numberOfHearts)
+                hearts[i].enabled = true;
+            else
+                hearts[i].enabled = false;
+        }
+    }
+
+    public void FireShot(Vector2 target)
+    {
+        //GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
+        //temp.GetComponent<Bullet>().SetTarget(target);
+
+        //GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
+        //Destroy(sound, 2f);
     }
 }

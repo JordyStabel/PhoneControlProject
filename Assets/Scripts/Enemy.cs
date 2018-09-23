@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-
+public class Enemy : MonoBehaviour
+{
     [Header("General")]
     public float enemySpeed;
     public float stoppingDistance;
