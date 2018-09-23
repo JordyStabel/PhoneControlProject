@@ -2,10 +2,12 @@
 
 public class Enemy : MonoBehaviour {
 
+    [Header("General")]
     public float enemySpeed;
     public float stoppingDistance;
     public float followDistance;
     public float retreatDistance;
+    public GameObject soundObject;
 
     [Header("Time between each shot")]
     public float startTimeBetweenShots;
@@ -57,10 +59,18 @@ public class Enemy : MonoBehaviour {
 
         if (timeBetweenShots <= 0 && inRange)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            FireShot();
             timeBetweenShots = startTimeBetweenShots;
         }
         else
             timeBetweenShots -= Time.deltaTime;
+    }
+
+    private void FireShot()
+    {
+        Instantiate(bullet, transform.position, Quaternion.identity);
+
+        GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
+        Destroy(sound, 2f);
     }
 }

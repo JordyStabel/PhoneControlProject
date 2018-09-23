@@ -93,6 +93,8 @@ MonoBehaviour:
   damage: 25
   bulletDestroyEffect: {fileID: 1852338730181694, guid: e8d6dac9da4d445458db42a244cb359a,
     type: 2}
+  soundObject: {fileID: 1686078203665032, guid: 4dcb9ed0d50f70946a452e4da8bd764c,
+    type: 2}
 --- !u!212 &212928482465016590
 SpriteRenderer:
   m_ObjectHideFlags: 1

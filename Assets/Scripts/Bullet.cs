@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
     Vector2 target;
 
     public GameObject bulletDestroyEffect;
+    public GameObject soundObject;
 
     void Start()
     {
@@ -19,12 +20,7 @@ public class Bullet : MonoBehaviour {
     void Update()
     {
         if (transform.position.x == target.x && transform.position.y == target.y)
-        {
-            Destroy(gameObject);
-            GameObject temp = (GameObject)Instantiate(bulletDestroyEffect, transform.position, Quaternion.identity);
-            //Max duration of the animation
-            Destroy(temp, 2f);
-        }
+            DestroyBullet();
         else
             transform.position = Vector2.MoveTowards(transform.position, target, bulletSpeed * Time.deltaTime);
     }
@@ -33,10 +29,17 @@ public class Bullet : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            DestroyBullet();
             Player.Instance.Damage(damage);
-            GameObject temp = (GameObject)Instantiate(bulletDestroyEffect, transform.position, Quaternion.identity);
-            Destroy(temp, 2f);
         }
+    }
+
+    private void DestroyBullet()
+    {
+        Destroy(gameObject);
+        GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
+        Destroy(sound, 2f);
+        GameObject temp = (GameObject)Instantiate(bulletDestroyEffect, transform.position, Quaternion.identity);
+        Destroy(temp, 2f);
     }
 }

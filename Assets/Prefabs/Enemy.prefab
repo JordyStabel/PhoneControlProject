@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114131985266507686}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,9 @@ MonoBehaviour:
   stoppingDistance: 50
   followDistance: 250
   retreatDistance: 20
-  startTimeBetweenShots: 2
+  soundObject: {fileID: 1526876858912358, guid: 5d6b2d6692770ac468f5ff60f5812d49,
+    type: 2}
+  startTimeBetweenShots: 2.5
   bullet: {fileID: 1065604437963948, guid: 8a9cdfe43a3640641aeb84646202b8d8, type: 2}
 --- !u!212 &212236426070400178
 SpriteRenderer:
