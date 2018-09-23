@@ -20,7 +20,6 @@ public class FogDestroyer : MonoBehaviour {
         {
             GameObject temp = hit.transform.gameObject;
             temp.GetComponent<FogOfWar>().Hit(hit);
-            Debug.Log("Been here");
         }
     }
 }

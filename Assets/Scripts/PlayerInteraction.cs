@@ -22,12 +22,10 @@ public class PlayerInteraction : MonoBehaviour {
                 GameObject parentDoor = collision.transform.parent.gameObject;
                 parentDoor.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
                 parentDoor.GetComponent<BoxCollider2D>().enabled = false;
-
             }
             else if (currentObject == null)
             {
                 Debug.Log("You can't open the door, you need a key!");
-
             }
         }
     }

@@ -71,8 +71,6 @@ public class FogOfWar : MonoBehaviour {
 
     public void Hit(RaycastHit hit)
     {
-        Debug.Log("Fog hit");
-
         for (int i = 0; i < vertices.Length; i++)
         {
             Vector3 vector = fogPlane.transform.TransformPoint(vertices[i]);
