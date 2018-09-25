@@ -152,6 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1272071196110212, guid: 7cddb493f53fcc440ba974e06114d901, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cddb493f53fcc440ba974e06114d901, type: 2}
   m_IsPrefabParent: 0
@@ -275,9 +279,10 @@ MonoBehaviour:
   bottomDoor: {fileID: 1370140781422346, guid: 4afe7eb03fc9e4540b5ce6bdf86c0a76, type: 2}
   rightDoor: {fileID: 1623345548974196, guid: 6fad0e0f3d06ba340bea97403380e858, type: 2}
   leftDoor: {fileID: 1717068151535938, guid: c78b8f1f0dd064144b3ae4af4642df71, type: 2}
-  rooms: []
   boss: {fileID: 1975129689935692, guid: 7d5cbc4fe5c76bd48bde95ba6b288c53, type: 2}
   key: {fileID: 1659498733573318, guid: 8ac224ba84682de45967a5436ccf8554, type: 2}
+  stairs: {fileID: 1791016630301552, guid: eac98461dca28624f9a848d6783d4a22, type: 2}
+  rooms: []
   waitTime: 2
 --- !u!4 &303500607
 Transform:
@@ -760,7 +765,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4740680908492354, guid: 78dcece576dd301419d56386e42e323c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4740680908492354, guid: 78dcece576dd301419d56386e42e323c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -807,6 +812,26 @@ Prefab:
       propertyPath: hearts.Array.data[4]
       value: 
       objectReference: {fileID: 689852890}
+    - target: {fileID: 1500794930973128, guid: 78dcece576dd301419d56386e42e323c, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308325524651790, guid: 78dcece576dd301419d56386e42e323c, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571064046992986, guid: 78dcece576dd301419d56386e42e323c, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016944592208364, guid: 78dcece576dd301419d56386e42e323c, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897173692742022, guid: 78dcece576dd301419d56386e42e323c, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78dcece576dd301419d56386e42e323c, type: 2}
   m_IsPrefabParent: 0
@@ -1350,7 +1375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4963421062249412, guid: 486d712f47cd32f4cb34c017a766f690, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4963421062249412, guid: 486d712f47cd32f4cb34c017a766f690, type: 2}
       propertyPath: m_LocalRotation.x

@@ -28,5 +28,9 @@ public class PlayerInteraction : MonoBehaviour {
                 Debug.Log("You can't open the door, you need a key!");
             }
         }
+        else if(collision.CompareTag("Stairs"))
+        {
+            Debug.Log("Now i should implement something in a game manager script");
+        }
     }
 }

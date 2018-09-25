@@ -15,49 +15,52 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
 
     private bool inRange = false;
+    private bool inVision = false;
     private Transform playerTransform;
     private SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        playerTransform = Player.Instance.GetPlayerTransform();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
 
         timeBetweenShots = startTimeBetweenShots;
+
+        Physics2D.queriesStartInColliders = false;
     }
 
     void Update()
     {
+        playerTransform = Player.Instance.GetPlayerTransform();
+
+        CheckVision();
+
+        inRange = Vector2.Distance(transform.position, playerTransform.position) <= followDistance;
+
         // Enemy is in range and moves towards the player
-        if (Vector2.Distance(transform.position, playerTransform.position) > stoppingDistance &&
-            Vector2.Distance(transform.position, playerTransform.position) <= followDistance)
+        if (Vector2.Distance(transform.position, playerTransform.position) > stoppingDistance && inRange && inVision)
         {
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, enemySpeed * Time.deltaTime);
             spriteRenderer.color = Color.red;
-            inRange = true;
         }
         // Enemy is in range but doesn't retreat
         else if (Vector2.Distance(transform.position, playerTransform.position) < stoppingDistance &&
-                Vector2.Distance(transform.position, playerTransform.position) > retreatDistance)
-        {
+                Vector2.Distance(transform.position, playerTransform.position) > retreatDistance && inVision && inRange)
             transform.position = this.transform.position;
-            inRange = true;
-        }
+
         // Enemy retreats from player, but is still in range
-        else if (Vector2.Distance(transform.position, playerTransform.position) < retreatDistance)
+        else if (Vector2.Distance(transform.position, playerTransform.position) < retreatDistance && inVision && inRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, -enemySpeed * Time.deltaTime);
             spriteRenderer.color = Color.yellow;
-            inRange = false;
         }
         // Enemy has no vision of player anymore
-        else if (Vector2.Distance(transform.position, playerTransform.position) > followDistance)
+        else if (!inRange && !inVision)
         {
             spriteRenderer.color = Color.blue;
-            inRange = false;
+            transform.position = this.transform.position;
         }
 
-        if (timeBetweenShots <= 0 && inRange)
+        if (timeBetweenShots <= 0 && inRange && inVision)
         {
             FireShot();
             timeBetweenShots = startTimeBetweenShots;
@@ -72,5 +75,21 @@ public class Enemy : MonoBehaviour
 
         GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
         Destroy(sound, 2f);
+    }
+
+    private void CheckVision()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (playerTransform.position - this.transform.position));
+
+        if (hit.collider.CompareTag("Wall"))
+        {
+            inVision = false;
+            Debug.DrawRay(this.transform.position, (playerTransform.position - this.transform.position), Color.red, 3);
+        }
+        else
+        {
+            inVision = true;
+            Debug.DrawRay(this.transform.position, (playerTransform.position - this.transform.position), Color.blue, 3);
+        }
     }
 }

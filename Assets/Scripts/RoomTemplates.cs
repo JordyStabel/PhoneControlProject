@@ -19,9 +19,12 @@ public class RoomTemplates : MonoBehaviour {
     public GameObject rightDoor;
     public GameObject leftDoor;
 
-    public List<GameObject> rooms;
+    //Object templates
     public GameObject boss;
     public GameObject key;
+    public GameObject stairs;
+
+    public List<GameObject> rooms;
 
     public float waitTime;
     private bool spawnedBoss;
@@ -41,6 +44,7 @@ public class RoomTemplates : MonoBehaviour {
 				if(i == rooms.Count-1)
                 {
 					Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
+                    Instantiate(stairs, rooms[i].transform.position, Quaternion.identity);
 					spawnedBoss = true;
 
                     Vector2 bossRoomLocation = rooms[i].transform.position;

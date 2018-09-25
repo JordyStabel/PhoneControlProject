@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436066643539440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22, y: 17.7, z: -0.22}
+  m_LocalPosition: {x: -22, y: 17.7, z: 0}
   m_LocalScale: {x: 60, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35d42631b999a047912e0bd5531fbe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 25
-  stoppingDistance: 50
-  followDistance: 250
-  retreatDistance: 20
+  enemySpeed: 15
+  stoppingDistance: 19
+  followDistance: 75
+  retreatDistance: 18
   soundObject: {fileID: 1526876858912358, guid: 5d6b2d6692770ac468f5ff60f5812d49,
     type: 2}
   startTimeBetweenShots: 5

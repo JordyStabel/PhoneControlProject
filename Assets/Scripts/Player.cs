@@ -86,7 +86,7 @@ public class Player : MonoBehaviour {
         //GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
         //temp.GetComponent<Bullet>().SetTarget(target);
 
-        //GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
-        //Destroy(sound, 2f);
+        GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
+        Destroy(sound, 2f);
     }
 }

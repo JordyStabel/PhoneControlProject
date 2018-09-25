@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InputPlayer : MonoBehaviour {
 
@@ -12,7 +10,7 @@ public class InputPlayer : MonoBehaviour {
     public Sprite heroIdleFront;
     public Sprite heroIdleBack;
 
-    //private bool joyStickActive = false; 
+    private bool joyStickActive = false; 
 
     // Use this for initialization
     void Start () {

@@ -27,7 +27,7 @@ public class FogOfWar : MonoBehaviour {
         //Ray ray = new Ray(transform.position, player.position - transform.position);
         Ray ray = new Ray(transform.position, transform.position);
         RaycastHit hit;
-        Debug.DrawRay(transform.position, transform.forward, Color.green, 1, false);
+        Debug.DrawRay(transform.position, transform.forward, Color.cyan, 1, false);
 
         // Remove in case of removing the effect once player has been at a certain location
         //for (int i = 0; i < colors.Length; i++)
