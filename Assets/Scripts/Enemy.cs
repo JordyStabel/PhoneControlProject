@@ -7,7 +7,13 @@ public class Enemy : MonoBehaviour
     public float stoppingDistance;
     public float followDistance;
     public float retreatDistance;
-    public GameObject soundObject;
+    public GameObject shootSound;
+
+    public GameObject destroySound;
+    public GameObject destroyEffect;
+
+    public float camerShakeDuration;
+    public float cameraShakeMultiplier;
 
     [Header("Time between each shot")]
     public float startTimeBetweenShots;
@@ -73,8 +79,19 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(bullet, transform.position, Quaternion.identity);
 
-        GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
+        GameObject sound = (GameObject)Instantiate(shootSound, this.transform.position, this.transform.rotation);
         Destroy(sound, 2f);
+    }
+
+    public void Destroy()
+    {
+        StartCoroutine(CameraShake.Instance.Shake(camerShakeDuration, cameraShakeMultiplier));
+        GameObject effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 2f);
+        GameObject sound = Instantiate(destroySound, transform.position, Quaternion.identity);
+        Destroy(sound, 3f);
+        this.gameObject.SetActive(false);
+        Destroy(this.gameObject, (camerShakeDuration + 1f));
     }
 
     private void CheckVision()

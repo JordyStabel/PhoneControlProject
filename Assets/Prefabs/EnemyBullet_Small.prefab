@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58373780029852548}
   - component: {fileID: 114967280197770692}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBullet_Small
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 40
   damage: 1
-  cameraShakeMultiplier: 0.5
-  camerShakeDuration: 0.5
+  cameraShakeMultiplier: 1
+  camerShakeDuration: 0.25
   bulletDestroyEffect: {fileID: 1852338730181694, guid: e8d6dac9da4d445458db42a244cb359a,
     type: 2}
   soundObject: {fileID: 1686078203665032, guid: 4dcb9ed0d50f70946a452e4da8bd764c,

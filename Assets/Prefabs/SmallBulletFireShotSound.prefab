@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 82921431592544406}
   - component: {fileID: 114585006078331266}
   m_Layer: 0
-  m_Name: EnemyFireShotSound
+  m_Name: SmallBulletFireShotSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

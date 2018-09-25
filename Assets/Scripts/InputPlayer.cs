@@ -10,7 +10,8 @@ public class InputPlayer : MonoBehaviour {
     public Sprite heroIdleFront;
     public Sprite heroIdleBack;
 
-    private bool joyStickActive = false; 
+    private bool joyStickActive = false;
+    private int direction = 0;
 
     // Use this for initialization
     void Start () {
@@ -23,31 +24,39 @@ public class InputPlayer : MonoBehaviour {
 
         #region Player shooting input
         // If value is more than 0 then the joystick is in use
-        //if (joystick.Direction.x > 0 || joystick.Direction.y > 0)
-        //    joyStickActive = true;
+        if (joystick.Direction.x > 0 || joystick.Direction.y > 0)
+            joyStickActive = true;
+        else
+            joyStickActive = false;
 
-        //if ((joyStickActive && Input.touchCount == 2) || (!joyStickActive && Input.touchCount > 0))
-        //{
-        //    Touch touch = Input.GetTouch(0);
+        // Bit weird because you don't want to shoot when using the joystick
+        if ((joyStickActive && Input.touchCount == 2) || (!joyStickActive && Input.touchCount > 0))
+        {
+            Touch touch;
 
-        //    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+            if (joyStickActive)
+                touch = Input.GetTouch(1);
+            else
+                touch = Input.GetTouch(0);
 
-        //    // Switch because I can...maybe do different stuff in the future
-        //    switch (touch.phase)
-        //    {
-        //        case TouchPhase.Began:
-        //            Player.Instance.FireShot(touchPos);
-        //            break;
-        //        case TouchPhase.Moved:
-        //            //Player.Instance.FireShot(Physics2D.OverlapPoint(touchPos).transform);
-        //            break;
-        //        case TouchPhase.Stationary:
-        //            //Player.Instance.FireShot(Physics2D.OverlapPoint(touchPos).transform);
-        //            break;
-        //        case TouchPhase.Ended:
-        //            break;
-        //    }
-        //}
+            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+
+            // Switch because I can...maybe do different stuff in the future
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    Player.Instance.FireShot(direction, touchPos);
+                    break;
+                case TouchPhase.Moved:
+                    //Player.Instance.FireShot(Physics2D.OverlapPoint(touchPos).transform);
+                    break;
+                case TouchPhase.Stationary:
+                    //Player.Instance.FireShot(Physics2D.OverlapPoint(touchPos).transform);
+                    break;
+                case TouchPhase.Ended:
+                    break;
+            }
+        }
         #endregion
 
         var rigidbody = GetComponent<Rigidbody2D>();
@@ -59,26 +68,26 @@ public class InputPlayer : MonoBehaviour {
             spriteRenderer.flipX = false;
             spriteRenderer.sprite = heroIdleSide;
             Player.Instance.ChangeHeadLightDirection(2);
-            Debug.Log("Turning Right");
+            direction = 2;
         }
         else if (joystick.Direction.y >= 0.800f && joystick.Direction.y <= 0.880f && joystick.Direction.x <= 0.5f && joystick.Direction.x >= -0.5f)
         {
             spriteRenderer.sprite = heroIdleBack;
             Player.Instance.ChangeHeadLightDirection(0);
-            Debug.Log("Turning Top");
+            direction = 0;
         }
         else if (joystick.Direction.y <= -0.800f && joystick.Direction.y >= -0.880f && joystick.Direction.x <= 0.5f && joystick.Direction.x >= -0.5f)
         {
             spriteRenderer.sprite = heroIdleFront;
             Player.Instance.ChangeHeadLightDirection(1);
-            Debug.Log("Turning Back");
+            direction = 1;
         }
         else if (joystick.Direction.x <= -0.800f && joystick.Direction.x >= -0.880f && joystick.Direction.y <= 0.5f && joystick.Direction.y >= -0.5f)
         {
             spriteRenderer.flipX = true;
             spriteRenderer.sprite = heroIdleSide;
             Player.Instance.ChangeHeadLightDirection(3);
-            Debug.Log("Turning Left");
+            direction = 3;
         }
     }
 }

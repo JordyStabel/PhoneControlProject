@@ -103,8 +103,13 @@ MonoBehaviour:
   stoppingDistance: 19
   followDistance: 75
   retreatDistance: 18
-  soundObject: {fileID: 1526876858912358, guid: 5d6b2d6692770ac468f5ff60f5812d49,
+  shootSound: {fileID: 1526876858912358, guid: 5d6b2d6692770ac468f5ff60f5812d49, type: 2}
+  destroySound: {fileID: 1686078203665032, guid: 4dcb9ed0d50f70946a452e4da8bd764c,
     type: 2}
+  destroyEffect: {fileID: 1852338730181694, guid: 289500a4f7b129b4d8818e168f423469,
+    type: 2}
+  camerShakeDuration: 0
+  cameraShakeMultiplier: 0
   startTimeBetweenShots: 5
   bullet: {fileID: 1065604437963948, guid: 8a9cdfe43a3640641aeb84646202b8d8, type: 2}
 --- !u!212 &212236426070400178

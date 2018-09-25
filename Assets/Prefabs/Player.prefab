@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4060396488254084}
   m_Layer: 0
   m_Name: Bottom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4582547824731990}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4402330004239094}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4593772469298140}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4954252906646150}
   m_Layer: 0
   m_Name: HeadLights
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   - {fileID: 0}
   fullheart: {fileID: 21300000, guid: da587bbe95806854f92d638bdf44ff20, type: 3}
   emptyHeart: {fileID: 21300000, guid: 8732954ba44758f449cc3cb4e48eb6da, type: 3}
-  bullet: {fileID: 1065604437963948, guid: 8a9cdfe43a3640641aeb84646202b8d8, type: 2}
+  bullet: {fileID: 1065604437963948, guid: 1aeeaf929397fcc47af5599fd6d65278, type: 2}
   soundObject: {fileID: 1526876858912358, guid: 5d6b2d6692770ac468f5ff60f5812d49,
     type: 2}
   player: {fileID: 4740680908492354}

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
         if (Instance == null)
             Instance = this;
         else
-            Destroy(gameObject); // Only one instance of this player
+            Destroy(gameObject);
 
         health = startingHealth;
     }
@@ -83,10 +83,26 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void FireShot(Vector2 target)
+    public void FireShot(int direction, Vector2 pos)
     {
-        //GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
-        //temp.GetComponent<Bullet>().SetTarget(target);
+        GameObject temp = Instantiate(bullet, transform.position, Quaternion.identity);
+        temp.GetComponent<Bullet>().SetTarget(pos);
+
+        //switch (direction)
+        //{
+        //    case 0:
+        //        temp.GetComponent<Bullet>().SetTarget(transform.position + transform.forward);
+        //        break;
+        //    case 1:
+        //        temp.GetComponent<Bullet>().SetTarget(transform.position - transform.forward);
+        //        break;
+        //    case 2:
+        //        temp.GetComponent<Bullet>().SetTarget(transform.position + transform.right);
+        //        break;
+        //    case 3:
+        //        temp.GetComponent<Bullet>().SetTarget(transform.position - transform.right);
+        //        break;
+        //}
 
         GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
         Destroy(sound, 2f);

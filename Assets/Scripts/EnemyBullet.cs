@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
+
     public float bulletSpeed;
     public int damage;
     public float cameraShakeMultiplier;
@@ -13,9 +14,10 @@ public class Bullet : MonoBehaviour
     public GameObject bulletDestroyEffect;
     public GameObject soundObject;
 
-    public void SetTarget(Vector2 target)
+    void Start()
     {
-        this.target = target;
+        playerTransform = Player.Instance.GetPlayerTransform();
+        target = new Vector2(playerTransform.position.x, playerTransform.position.y);
     }
 
     void Update()
@@ -28,10 +30,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Player"))
         {
             DestroyBullet();
-            other.GetComponent<Enemy>().Destroy();
+            Player.Instance.PlayerHit(damage, camerShakeDuration, cameraShakeMultiplier);
         }
     }
 
@@ -39,7 +41,7 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
         GameObject sound = (GameObject)Instantiate(soundObject, this.transform.position, this.transform.rotation);
-        Destroy(sound, 3f);
+        Destroy(sound, 2f);
         GameObject temp = (GameObject)Instantiate(bulletDestroyEffect, transform.position, Quaternion.identity);
         Destroy(temp, 2f);
     }
