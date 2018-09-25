@@ -5,6 +5,8 @@ public class Bullet : MonoBehaviour
 
     public float bulletSpeed;
     public int damage;
+    public float cameraShakeMultiplier;
+    public float camerShakeDuration;
 
     private Transform playerTransform;
     Vector2 target;
@@ -31,7 +33,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             DestroyBullet();
-            Player.Instance.PlayerHit(damage);
+            Player.Instance.PlayerHit(damage, camerShakeDuration, cameraShakeMultiplier);
         }
     }
 

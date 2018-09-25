@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35d42631b999a047912e0bd5531fbe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 15
+  enemySpeed: 35
   stoppingDistance: 19
   followDistance: 75
   retreatDistance: 18

@@ -56,7 +56,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.285
+  m_Radius: 2
 --- !u!114 &114967280197770692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,8 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66a0b87a08aa804491b3faf1ccb16df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 50
+  bulletSpeed: 40
   damage: 1
+  cameraShakeMultiplier: 0.5
+  camerShakeDuration: 0.5
   bulletDestroyEffect: {fileID: 1852338730181694, guid: e8d6dac9da4d445458db42a244cb359a,
     type: 2}
   soundObject: {fileID: 1686078203665032, guid: 4dcb9ed0d50f70946a452e4da8bd764c,

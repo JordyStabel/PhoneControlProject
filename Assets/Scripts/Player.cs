@@ -48,9 +48,11 @@ public class Player : MonoBehaviour {
         return this.transform;
     }
 
-    public void PlayerHit(int amount)
+    public void PlayerHit(int damageAmount, float camerShakeDuration, float cameraShakeMultiplier)
     {
-        health -= amount;
+        StartCoroutine(CameraShake.Instance.Shake(camerShakeDuration, cameraShakeMultiplier));
+
+        health -= damageAmount;
         UpdateHealth();
 
         if (health <= 0)
