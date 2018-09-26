@@ -10,7 +10,7 @@ public class Minimap : MonoBehaviour {
         newPosition.z = transform.position.z;
         transform.position = newPosition;
 
-        // Only if you want to have the minimap rotate with the player
-        // transform.rotation = Quaternion.Euler(90f, player.eulerAngles.y, 0f);
+        // Rotation
+        //transform.rotation = Quaternion.Euler(0f, 0f, player.eulerAngles.z);
     }
 }

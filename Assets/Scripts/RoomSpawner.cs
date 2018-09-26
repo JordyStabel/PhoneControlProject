@@ -12,6 +12,7 @@ public class RoomSpawner : MonoBehaviour {
 
     private RoomTemplates templates;
     private int rand;
+    private int randomEnemiesSpawn;
     public bool spawned = false;
 
     public float waitTime = 4f;
@@ -22,6 +23,12 @@ public class RoomSpawner : MonoBehaviour {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         Invoke("Spawn", 0.1f);
     }
+
+    public void spawnDungeon()
+    {
+      
+    }
+
 
 
     void Spawn()
@@ -38,6 +45,17 @@ public class RoomSpawner : MonoBehaviour {
                 GameObject temp = Instantiate(templates.fog, pos, templates.fog.transform.rotation);
                 temp.GetComponent<FogOfWar>().fogPlane = temp;
                 temp.GetComponent<FogOfWar>().Initialize();
+
+                //Random number for enemy spawn based on currentLevel
+                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
+                Debug.Log(randomEnemiesSpawn);
+
+                for (int i = 0; i < randomEnemiesSpawn; i++)
+                {
+                    //It will select a random int based on the amount of enemies added to the array
+                    int randEnemiesArray = Random.Range(0, templates.enemies.Length);
+                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+                }
             }
             else if (openingDirection == 2)
             {
@@ -49,6 +67,16 @@ public class RoomSpawner : MonoBehaviour {
                 GameObject temp = Instantiate(templates.fog, pos, templates.fog.transform.rotation);
                 temp.GetComponent<FogOfWar>().fogPlane = temp;
                 temp.GetComponent<FogOfWar>().Initialize();
+
+                //Random number for enemy spawn based on currentLevel
+                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
+                Debug.Log(randomEnemiesSpawn);
+                for (int i = 0; i < randomEnemiesSpawn; i++)
+                {
+                    //It will select a random int based on the amount of enemies added to the array
+                    int randEnemiesArray = Random.Range(0, templates.enemies.Length);
+                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+                }
             }
             else if (openingDirection == 3)
             {
@@ -60,6 +88,17 @@ public class RoomSpawner : MonoBehaviour {
                 GameObject temp = Instantiate(templates.fog, pos, templates.fog.transform.rotation);
                 temp.GetComponent<FogOfWar>().fogPlane = temp;
                 temp.GetComponent<FogOfWar>().Initialize();
+
+                //Random number for enemy spawn based on currentLevel
+                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
+                Debug.Log(randomEnemiesSpawn);
+
+                for (int i = 0; i < randomEnemiesSpawn; i++)
+                {
+                    //It will select a random int based on the amount of enemies added to the array
+                    int randEnemiesArray = Random.Range(0, templates.enemies.Length);
+                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+                }
             }
             else if (openingDirection == 4)
             {
@@ -71,6 +110,16 @@ public class RoomSpawner : MonoBehaviour {
                 GameObject temp = Instantiate(templates.fog, pos, templates.fog.transform.rotation);
                 temp.GetComponent<FogOfWar>().fogPlane = temp;
                 temp.GetComponent<FogOfWar>().Initialize();
+
+                //Random number for enemy spawn based on currentLevel
+                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
+                Debug.Log(randomEnemiesSpawn);
+                for (int i = 0; i < randomEnemiesSpawn; i++)
+                {
+                    //It will select a random int based on the amount of enemies added to the array
+                    int randEnemiesArray = Random.Range(0, templates.enemies.Length);
+                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+                }
             }
             spawned = true;
             templates.openingDirection = openingDirection;

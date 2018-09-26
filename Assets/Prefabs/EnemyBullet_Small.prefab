@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 40
   damage: 1
-  cameraShakeMultiplier: 1
+  cameraShakeMultiplier: 3
   camerShakeDuration: 0.25
   bulletDestroyEffect: {fileID: 1852338730181694, guid: e8d6dac9da4d445458db42a244cb359a,
     type: 2}

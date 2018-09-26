@@ -3,9 +3,6 @@
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
-    public int damage;
-    public float cameraShakeMultiplier;
-    public float camerShakeDuration;
 
     private Transform playerTransform;
     Vector2 target;

@@ -26,7 +26,9 @@ public class Player : MonoBehaviour {
             Instance = this;
         else
             Destroy(gameObject);
-
+        // You can use the Playerprefs.GetInt to retrieve current health
+        // Make sure you check the int since it doesn't get reset on quitting the game
+        //Debug.Log(PlayerPrefs.GetInt("currentHealth", 5));
         health = startingHealth;
     }
     private void Update()
@@ -81,6 +83,8 @@ public class Player : MonoBehaviour {
             else
                 hearts[i].enabled = false;
         }
+        //This is for potentially saving health through reloading scenes
+        //PlayerPrefs.SetInt("currentHealth", health);
     }
 
     public void FireShot(int direction, Vector2 pos)
