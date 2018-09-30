@@ -296,6 +296,7 @@ MonoBehaviour:
   bullet: {fileID: 1065604437963948, guid: 1aeeaf929397fcc47af5599fd6d65278, type: 2}
   soundObject: {fileID: 1526876858912358, guid: 5d6b2d6692770ac468f5ff60f5812d49,
     type: 2}
+  gameOverUI: {fileID: 0}
   player: {fileID: 4740680908492354}
   startingHealth: 5
   numberOfHearts: 5
@@ -313,6 +314,9 @@ MonoBehaviour:
   heroIdleSide: {fileID: 21300000, guid: 21ae12909dfa64464820da55fc494021, type: 3}
   heroIdleFront: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
   heroIdleBack: {fileID: 21300000, guid: 4fc82fadd0e1d4ed8a697be473d72842, type: 3}
+  parent: {fileID: 0}
+  joyStickPrefab: {fileID: 1428625887000980, guid: 85e541c771d02f24a9769082e0743848,
+    type: 2}
 --- !u!114 &114359589518977688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentObject: {fileID: 0}
   currentLevelText: {fileID: 0}
+  levelSurvied: {fileID: 0}
 --- !u!212 &212001840103002068
 SpriteRenderer:
   m_ObjectHideFlags: 1

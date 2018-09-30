@@ -44,7 +44,10 @@ public class RoomTemplates : MonoBehaviour {
 				if(i == rooms.Count-1)
                 {
 					Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
-                    Instantiate(stairs, rooms[i].transform.position, Quaternion.identity);
+
+                    Vector3 newStairPosition = rooms[i].transform.position;
+                    newStairPosition.z = newStairPosition.z - 0.1f;
+                    Instantiate(stairs, newStairPosition, Quaternion.identity);
 					spawnedBoss = true;
 
                     Vector2 bossRoomLocation = rooms[i].transform.position;

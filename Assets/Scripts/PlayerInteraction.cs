@@ -9,6 +9,8 @@ public class PlayerInteraction : MonoBehaviour {
     public GameObject currentObject = null;
     public Text currentLevelText;
     private int currentLevel = 0;
+
+    public Text levelSurvied;
  
     // Use this for initialization
     void Start()
@@ -53,5 +55,16 @@ public class PlayerInteraction : MonoBehaviour {
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("currentLevel", 0);
+    }
+
+    public void Retry()
+    {
+        PlayerPrefs.SetInt("currentLevel", currentLevel);
+        levelSurvied.text = "Survied level: " + currentLevel.ToString();
+        Debug.Log("Reload level, failed previous level");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+
+        Time.timeScale = 1f;
     }
 }

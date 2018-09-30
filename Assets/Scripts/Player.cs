@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     public GameObject bullet;
     public GameObject soundObject;
 
+    public GameObject gameOverUI;
+
     public Transform player;
     public int startingHealth;
     public int numberOfHearts;
@@ -52,13 +54,18 @@ public class Player : MonoBehaviour {
 
     public void PlayerHit(int damageAmount, float camerShakeDuration, float cameraShakeMultiplier)
     {
-        StartCoroutine(CameraShake.Instance.Shake(camerShakeDuration, cameraShakeMultiplier));
+        Coroutine coroutine = StartCoroutine(CameraShake.Instance.Shake(camerShakeDuration, cameraShakeMultiplier));
 
         health -= damageAmount;
         UpdateHealth();
 
         if (health <= 0)
-            Debug.Log("You ded boi!");
+        {
+            gameOverUI.SetActive(true);
+            // Pause game time
+            StopCoroutine(coroutine);
+            Time.timeScale = 0f;
+        }
     }
 
     public void ChangeHeadLightDirection(int direction)

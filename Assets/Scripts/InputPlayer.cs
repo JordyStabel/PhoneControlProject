@@ -10,6 +10,9 @@ public class InputPlayer : MonoBehaviour {
     public Sprite heroIdleFront;
     public Sprite heroIdleBack;
 
+    //public Canvas parent;
+    //public GameObject joyStickPrefab;
+
     private bool joyStickActive = false;
     private int direction = 0;
 
@@ -21,6 +24,23 @@ public class InputPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        #region Spawnable joystick test code
+        //if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        //{
+        //    GameObject temp = Instantiate(joyStickPrefab, Input.GetTouch(0).position, Quaternion.identity);
+        //    temp.transform.parent = parent.transform;
+        //    joystick = temp.GetComponent<Joystick>();
+        //    spriteRenderer = temp.GetComponent<SpriteRenderer>();
+        //}
+        #endregion
+
+        // Testing only
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 pos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+            Player.Instance.FireShot(0, (Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+        }
 
         #region Player shooting input
         // If value is more than 0 then the joystick is in use

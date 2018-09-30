@@ -32,9 +32,11 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DestroyBullet();
             Player.Instance.PlayerHit(damage, camerShakeDuration, cameraShakeMultiplier);
+            DestroyBullet();
         }
+        if (other.CompareTag("Wall"))
+            DestroyBullet();
     }
 
     private void DestroyBullet()

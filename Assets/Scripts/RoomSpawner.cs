@@ -47,14 +47,16 @@ public class RoomSpawner : MonoBehaviour {
                 temp.GetComponent<FogOfWar>().Initialize();
 
                 //Random number for enemy spawn based on currentLevel
-                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
-                Debug.Log(randomEnemiesSpawn);
+                randomEnemiesSpawn = Random.Range(0, 2);
 
                 for (int i = 0; i < randomEnemiesSpawn; i++)
                 {
                     //It will select a random int based on the amount of enemies added to the array
+
+                    Vector3 enemiesNewSpawn = transform.position;
+                    enemiesNewSpawn.z = enemiesNewSpawn.z - 0.1f;
                     int randEnemiesArray = Random.Range(0, templates.enemies.Length);
-                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+                    Instantiate(templates.enemies[randEnemiesArray], enemiesNewSpawn, transform.rotation);
                 }
             }
             else if (openingDirection == 2)
@@ -69,13 +71,16 @@ public class RoomSpawner : MonoBehaviour {
                 temp.GetComponent<FogOfWar>().Initialize();
 
                 //Random number for enemy spawn based on currentLevel
-                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
-                Debug.Log(randomEnemiesSpawn);
+                randomEnemiesSpawn = Random.Range(0, 2);
+
                 for (int i = 0; i < randomEnemiesSpawn; i++)
                 {
                     //It will select a random int based on the amount of enemies added to the array
                     int randEnemiesArray = Random.Range(0, templates.enemies.Length);
-                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+
+                    Vector3 enemiesNewSpawn = transform.position;
+                    enemiesNewSpawn.z = enemiesNewSpawn.z - 0.1f;
+                    Instantiate(templates.enemies[randEnemiesArray], enemiesNewSpawn, transform.rotation);
                 }
             }
             else if (openingDirection == 3)
@@ -90,14 +95,16 @@ public class RoomSpawner : MonoBehaviour {
                 temp.GetComponent<FogOfWar>().Initialize();
 
                 //Random number for enemy spawn based on currentLevel
-                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
-                Debug.Log(randomEnemiesSpawn);
+                randomEnemiesSpawn = Random.Range(0, 2);
 
                 for (int i = 0; i < randomEnemiesSpawn; i++)
                 {
                     //It will select a random int based on the amount of enemies added to the array
                     int randEnemiesArray = Random.Range(0, templates.enemies.Length);
-                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+
+                    Vector3 enemiesNewSpawn = transform.position;
+                    enemiesNewSpawn.z = enemiesNewSpawn.z - 0.1f;
+                    Instantiate(templates.enemies[randEnemiesArray], enemiesNewSpawn, transform.rotation);
                 }
             }
             else if (openingDirection == 4)
@@ -112,13 +119,15 @@ public class RoomSpawner : MonoBehaviour {
                 temp.GetComponent<FogOfWar>().Initialize();
 
                 //Random number for enemy spawn based on currentLevel
-                randomEnemiesSpawn = Random.Range(0, PlayerPrefs.GetInt("currentLevel", 0));
-                Debug.Log(randomEnemiesSpawn);
+                randomEnemiesSpawn = Random.Range(0, 2);
+
                 for (int i = 0; i < randomEnemiesSpawn; i++)
                 {
                     //It will select a random int based on the amount of enemies added to the array
                     int randEnemiesArray = Random.Range(0, templates.enemies.Length);
-                    Instantiate(templates.enemies[randEnemiesArray], transform.position, transform.rotation);
+                    Vector3 enemiesNewSpawn = transform.position;
+                    enemiesNewSpawn.z = enemiesNewSpawn.z - 0.1f;
+                    Instantiate(templates.enemies[randEnemiesArray], enemiesNewSpawn, transform.rotation);
                 }
             }
             spawned = true;

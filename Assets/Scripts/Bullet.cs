@@ -27,9 +27,12 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            DestroyBullet();
             other.GetComponent<Enemy>().Destroy();
+            DestroyBullet();
         }
+           
+        if (other.CompareTag("Wall"))
+            DestroyBullet();
     }
 
     private void DestroyBullet()
