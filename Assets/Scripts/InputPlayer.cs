@@ -10,11 +10,13 @@ public class InputPlayer : MonoBehaviour {
     public Sprite heroIdleFront;
     public Sprite heroIdleBack;
 
+
     //public Canvas parent;
     //public GameObject joyStickPrefab;
 
     private bool joyStickActive = false;
     private int direction = 0;
+
 
     // Use this for initialization
     void Start () {
@@ -83,31 +85,38 @@ public class InputPlayer : MonoBehaviour {
 
         rigidbody.velocity = new Vector2(joystick.Horizontal * 50, joystick.Vertical * 50);
 
-        if (joystick.Direction.x >= 0.800f && joystick.Direction.x <= 0.880f && joystick.Direction.y <= 0.5f && joystick.Direction.y >= -0.5f)
+
+        if (joystick.Horizontal > .0f && joystick.Vertical >= -.5f && joystick.Vertical <= .5f)
         {
             spriteRenderer.flipX = false;
             spriteRenderer.sprite = heroIdleSide;
+            Debug.Log("Turning Right");
             Player.Instance.ChangeHeadLightDirection(2);
             direction = 2;
         }
-        else if (joystick.Direction.y >= 0.800f && joystick.Direction.y <= 0.880f && joystick.Direction.x <= 0.5f && joystick.Direction.x >= -0.5f)
+        else if (joystick.Horizontal < .0f && joystick.Vertical >= -.5f && joystick.Vertical <= .5f)
         {
-            spriteRenderer.sprite = heroIdleBack;
-            Player.Instance.ChangeHeadLightDirection(0);
-            direction = 0;
-        }
-        else if (joystick.Direction.y <= -0.800f && joystick.Direction.y >= -0.880f && joystick.Direction.x <= 0.5f && joystick.Direction.x >= -0.5f)
-        {
-            spriteRenderer.sprite = heroIdleFront;
-            Player.Instance.ChangeHeadLightDirection(1);
-            direction = 1;
-        }
-        else if (joystick.Direction.x <= -0.800f && joystick.Direction.x >= -0.880f && joystick.Direction.y <= 0.5f && joystick.Direction.y >= -0.5f)
-        {
+            Debug.Log("Turning Left");
             spriteRenderer.flipX = true;
             spriteRenderer.sprite = heroIdleSide;
             Player.Instance.ChangeHeadLightDirection(3);
             direction = 3;
         }
+        else if (joystick.Vertical >= .0f && joystick.Horizontal <= .5f && joystick.Horizontal >= -.5f)
+        {
+            Debug.Log("Turning Up");
+            spriteRenderer.sprite = heroIdleBack;
+            Player.Instance.ChangeHeadLightDirection(0);
+            direction = 0;
+        }
+        else if (joystick.Vertical < .0f && joystick.Horizontal <= .5f && joystick.Horizontal >= -.5f)
+        {
+            Debug.Log("Turning Down");
+            spriteRenderer.sprite = heroIdleFront;
+            Player.Instance.ChangeHeadLightDirection(1);
+            direction = 1;
+        }
+        
+       
     }
 }
