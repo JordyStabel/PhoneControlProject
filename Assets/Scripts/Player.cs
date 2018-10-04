@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
     public int startingHealth;
     public int numberOfHearts;
     private int health;
-    private int direction = 0;
+    private int direction;
 
     private void Awake()
     {
@@ -32,13 +32,15 @@ public class Player : MonoBehaviour {
         // Make sure you check the int since it doesn't get reset on quitting the game
         //Debug.Log(PlayerPrefs.GetInt("currentHealth", 5));
         health = startingHealth;
+
+        direction = 0;
     }
     private void Update()
     {
-        Ray ray = new Ray(rayCastPos[direction].transform.position, Camera.main.transform.position);
+        Ray ray = new Ray(rayCastPos[direction].transform.position, -rayCastPos[direction].transform.forward * 25);
         RaycastHit hit;
 
-        Debug.DrawRay(rayCastPos[direction].transform.position, (rayCastPos[direction].transform.position - Camera.main.transform.position), Color.green, 1, false);
+        Debug.DrawRay(rayCastPos[direction].transform.position, -rayCastPos[direction].transform.forward * 25, Color.green, 0.5f, false);
 
         if (Physics.Raycast(ray, out hit, 2000, fogLayer, QueryTriggerInteraction.Collide))
         {

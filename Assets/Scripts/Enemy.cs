@@ -99,14 +99,8 @@ public class Enemy : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (playerTransform.position - this.transform.position));
 
         if (hit.collider.CompareTag("Wall"))
-        {
             inVision = false;
-            Debug.DrawRay(this.transform.position, (playerTransform.position - this.transform.position), Color.red, 3);
-        }
         else
-        {
             inVision = true;
-            Debug.DrawRay(this.transform.position, (playerTransform.position - this.transform.position), Color.blue, 3);
-        }
     }
 }
