@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputPlayer : MonoBehaviour {
 
@@ -38,7 +39,7 @@ public class InputPlayer : MonoBehaviour {
         #endregion
 
         // Testing only
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Vector2 pos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
             Player.Instance.FireShot(0, (Camera.main.ScreenToWorldPoint(Input.mousePosition)));
@@ -52,7 +53,7 @@ public class InputPlayer : MonoBehaviour {
             joyStickActive = false;
 
         // Bit weird because you don't want to shoot when using the joystick
-        if ((joyStickActive && Input.touchCount == 2) || (!joyStickActive && Input.touchCount > 0))
+        if (((joyStickActive && Input.touchCount == 2) || (!joyStickActive && Input.touchCount > 0)) && !EventSystem.current.IsPointerOverGameObject())
         {
             Touch touch;
 
@@ -90,13 +91,11 @@ public class InputPlayer : MonoBehaviour {
         {
             spriteRenderer.flipX = false;
             spriteRenderer.sprite = heroIdleSide;
-            Debug.Log("Turning Right");
             Player.Instance.ChangeHeadLightDirection(2);
             direction = 2;
         }
         else if (joystick.Horizontal < .0f && joystick.Vertical >= -.5f && joystick.Vertical <= .5f)
         {
-            Debug.Log("Turning Left");
             spriteRenderer.flipX = true;
             spriteRenderer.sprite = heroIdleSide;
             Player.Instance.ChangeHeadLightDirection(3);
@@ -104,14 +103,12 @@ public class InputPlayer : MonoBehaviour {
         }
         else if (joystick.Vertical >= .0f && joystick.Horizontal <= .5f && joystick.Horizontal >= -.5f)
         {
-            Debug.Log("Turning Up");
             spriteRenderer.sprite = heroIdleBack;
             Player.Instance.ChangeHeadLightDirection(0);
             direction = 0;
         }
         else if (joystick.Vertical < .0f && joystick.Horizontal <= .5f && joystick.Horizontal >= -.5f)
         {
-            Debug.Log("Turning Down");
             spriteRenderer.sprite = heroIdleFront;
             Player.Instance.ChangeHeadLightDirection(1);
             direction = 1;
